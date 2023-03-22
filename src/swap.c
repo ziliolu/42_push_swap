@@ -3,7 +3,7 @@
 int swap(t_stack *stack)
 {
     t_node *tmp;
-    if(verify_two_elements(*stack, OP.swap, stack.charac) == 1)
+    if(verify_two_elements(*stack) == 1)
     {
         printf("SWAP %c\n", stack->charac);
         tmp = stack->top;

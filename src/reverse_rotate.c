@@ -2,14 +2,22 @@
 
 int reverse_rotate(t_stack *stack)
 {
-    printf("rr%c\n", stack->charac);
-    if (!stack->top || !stack->top->next) // verificar se há no minimo dois elementos
+    if(verify_two_elements(*stack) == 1)
     {
-        printf("-> não há elementos suficientes p/ rotate\n");
-        return (-1);
+        printf("rr%c\n", stack->charac);
+        stack->top = find_last_node(*stack);
+        return (1);
     }
-    //The last element becomes the first one.
+    return (-1);
+}
 
-	stack->top = find_last_node(*stack);
-    return (1);
+int rrr(t_stack *a, t_stack *b)
+{
+    if(verify_two_elements(*a) == 1 && verify_two_elements(*b))
+    {
+        reverse_rotate(a);
+        reverse_rotate(b);
+        return (1);
+    }
+    return (-1);
 }

@@ -11,3 +11,14 @@ int rotate(t_stack *stack)
     stack->top = stack->top->next;
     return (1);
 }
+
+int rr(t_stack *a, t_stack *b)
+{
+    if(verify_two_elements(*a) == 1 && verify_two_elements(*b))
+    {
+        rotate(a);
+        rotate(b);
+        return (1);
+    }
+    return (-1);
+}
