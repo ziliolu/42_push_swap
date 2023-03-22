@@ -30,12 +30,13 @@ int print_stack(t_stack a, t_stack b) //nao utilizar * para poder criar apenas c
 
 void print_info(t_stack stack)
 {
-    printf("\n--- INFO STACK %c ---\n", stack.charac);
+    printf("--- INFO STACK %c ---\n", stack.charac);
     printf("top node: %d\n", stack.top->data);
 	printf("next do top node: %d\n", stack.top->next->data);
+    printf("next do next do top node (segundo): %d\n", stack.top->next->next->data);
 	printf("prev do top node: %d\n", stack.top->prev->data);
 	printf("last node: %d\n", find_last_node(stack)->data);
 	printf("prev do last node: %d\n", find_last_node(stack)->prev->data);
 	printf("next do last node: %d\n", find_last_node(stack)->next->data);
-	printf("size da stack: %d\n", stack.size);
+	printf("size da stack: %d\n\n", stack.size);
 }

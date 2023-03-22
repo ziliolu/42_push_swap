@@ -14,9 +14,11 @@ int push(t_stack *origin, t_stack *dest)
     
     tmp = origin->top;
     
+    find_last_node(*origin)->next = origin->top->next;
+    origin->top->next->prev = find_last_node(*origin);
     origin->top = origin->top->next;
     origin->top->prev = find_last_node(*origin);
-    find_last_node(*origin)->next = origin->top;
+
     
     add_node_front(dest, newNode(tmp->data));
     origin->size -= 1;

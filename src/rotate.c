@@ -2,13 +2,18 @@
 
 int rotate(t_stack *stack)
 {
+    t_node *tmp;
+
     printf("ROTATE %c\n", stack->charac);
     if (!stack->top || !stack->top->next) // verificar se há no minimo dois elementos
     {
         printf("-> não há elementos suficientes p/ rotate\n");
         return (-1);
     }
+    tmp = stack->top;
+    find_last_node(*stack)->next = stack->top->next;
     stack->top = stack->top->next;
+    find_last_node(*stack)->next = tmp;
     return (1);
 }
 

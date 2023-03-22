@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpicoli- < lpicoli-@student.42porto.com    +#+  +:+       +#+        */
+/*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:17:47 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/03/22 10:40:26 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:33:02 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ int         swap(t_stack *stack);
 
 // ====== rotate ======
 int         reverse_rotate(t_stack *stack);
+int         rrr(t_stack *a, t_stack *b);
 
 // ====== reverse_rotate ======
 int         rotate(t_stack *stack);
+int         rr(t_stack *a, t_stack *b);
 
 // ====== destroy =====
 void        free_stacks(t_stack *a, t_stack *b);
