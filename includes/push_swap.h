@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:17:47 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/03/22 11:33:02 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:55:55 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,6 @@ int         verify_doubles(int argc, char **argv);
 int         verify_args(int argc, char **argv);
 
 int         verify_two_elements(t_stack stack);
+int         find_index(t_stack stack, t_node *node);
+
 #endif 

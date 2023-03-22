@@ -26,23 +26,7 @@ int main(int argc, char **argv)
         print_stack(a, b);
         while(--argc >= i)
             add_node_front(&a, newNode(atoi(argv[argc])));
-        print_stack(a, b);
-        print_info(a);
-        rotate(&a);
-        print_stack(a, b);
-        print_info(a);
-        rotate(&a);
-        print_stack(a, b);
-        print_info(a);
-        push(&a, &b);
-        print_stack(a, b);
-        print_info(a);
-        push(&a, &b);
-        print_stack(a, b);
-        print_info(a);
-        rr(&a, &b);
-        print_stack(a, b);
-        print_info(a);
+        printf("%d\n", )
     }
     return(0);
 }       
