@@ -1,13 +1,25 @@
 #include "../includes/push_swap.h"
 
-int rotate(t_stack *stack)
+int rotate(t_stack *stack, bool op)
 {
-    printf("ROTATE %c\n", stack->charac);
-    if (!stack->top || !stack->top->next) // verificar se há no minimo dois elementos
+    if (stack->size >= 2)
     {
-        printf("-> não há elementos suficientes p/ rotate\n");
-        return (-1);
+        stack->top = stack->top->next;
+        if(op)
+            printf("r%c\n", stack->charac);
+        return (1);
     }
-    stack->top = stack->top->next;
-    return (1);
+    return (-1);
+}
+
+int rr(t_stack *a, t_stack *b)
+{
+	if(a->size >= 2 && b->size >= 2)
+	{
+		printf("rr\n");
+		rotate(a, 0);
+		rotate(b, 0);
+		return (1);
+	}
+	return (-1);
 }

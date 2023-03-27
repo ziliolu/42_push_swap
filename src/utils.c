@@ -47,3 +47,19 @@ int add_node_front(t_stack *stack, t_node *newNode)
 	stack->top = newNode;
     return (1);
 }
+
+t_node *pop(t_stack *stack)
+{
+	t_node *tmp;
+
+	if (stack->size < 1)
+		return (NULL);
+	else if(!stack)
+		return (NULL);
+	tmp = stack->top;
+	stack->top->prev->next = stack->top->next;
+	stack->top->next->prev = stack->top->prev;
+	stack->top = stack->top->next;
+	stack->size--;
+	return(tmp);
+}

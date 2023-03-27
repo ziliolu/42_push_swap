@@ -1,15 +1,25 @@
 #include "../includes/push_swap.h"
 
-int reverse_rotate(t_stack *stack)
+int reverse_rotate(t_stack *stack, bool op)
 {
-    printf("rr%c\n", stack->charac);
-    if (!stack->top || !stack->top->next) // verificar se há no minimo dois elementos
+    if (stack->size >= 2)
     {
-        printf("-> não há elementos suficientes p/ rotate\n");
-        return (-1);
+		stack->top = stack->top->prev;
+		if(op)
+			printf("rr%c\n", stack->charac);
+		return (1);
     }
-    //The last element becomes the first one.
+	return (-1);
+}
 
-	stack->top = find_last_node(*stack);
-    return (1);
+int rrr(t_stack *a, t_stack *b)
+{
+	if(a->size >= 2 && b->size >= 2)
+	{
+		printf("rrr\n");
+		reverse_rotate(a, 0);
+		reverse_rotate(b, 0);
+		return (1);
+	}
+	return (-1);
 }

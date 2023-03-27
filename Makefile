@@ -11,7 +11,9 @@ SRC =	./src/main.c					\
 		./src/swap.c					\
 		./src/verify_args.c				\
 		./src/panic.c					\
-		./src/verify_two_elements.c		\
+		./src/algorithm.c				\
+		./src/index.c					\
+		./src/push_swap.c				\
 		./src/utils.c
 
 OBJ = $(SRC:.c=.o)

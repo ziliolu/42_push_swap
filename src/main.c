@@ -25,10 +25,27 @@ int main(int argc, char **argv)
         init_structs(&a, &b);
         print_stack(a, b);
         while(--argc >= i)
-            add_node_front(&a, newNode(atoi(argv[argc])));
-        print_stack(a, b);
-        swap(&a);
-        print_stack(a, b);
+            push(&a, newNode(atoi(argv[argc])), 0);
+        if(is_organized(a) == 1)
+        {
+            printf("its already organized, nothing to be done ;)");
+            exit(0);
+        }
+        push_swap_init(&a, &b);
+        printf("%d\n", is_organized(a));
+        // print_stack(a, b);
+        // push(&b, pop(&a), 1);
+        // print_stack(a, b);
+        // push(&b, pop(&a), 1);
+        // print_stack(a, b);
+        // push(&a, pop(&b), 1);
+        // print_stack(a, b);
+        // swap(&a);
+        // print_stack(a, b);
+        // push(&b, pop(&a), 1);
+        // print_stack(a, b);
+        // rr(&a, &b);
+        // print_stack(a, b);
     }
     return(0);
 }       
