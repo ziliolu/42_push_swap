@@ -25,6 +25,7 @@ int main(int argc, char **argv)
         init_structs(&a, &b);
         print_stack(a, b);
         while(--argc >= i)
+<<<<<<< HEAD
             push(&a, newNode(atoi(argv[argc])), 0);
         if(is_organized(a) == 1)
         {
@@ -46,6 +47,10 @@ int main(int argc, char **argv)
         // print_stack(a, b);
         // rr(&a, &b);
         // print_stack(a, b);
+=======
+            add_node_front(&a, newNode(atoi(argv[argc])));
+        printf("%d\n", )
+>>>>>>> bff7121e5519ddaa03ff20f0cca9a35b66da8b6a
     }
     return(0);
 }       

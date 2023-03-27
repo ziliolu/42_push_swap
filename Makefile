@@ -9,6 +9,7 @@ SRC =	./src/main.c					\
 		./src/rotate.c					\
 		./src/reverse_rotate.c			\
 		./src/swap.c					\
+		./src/find_index.c				\
 		./src/verify_args.c				\
 		./src/panic.c					\
 		./src/algorithm.c				\
