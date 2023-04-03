@@ -14,6 +14,7 @@ SRC =	./src/main.c					\
 		./src/algorithm.c				\
 		./src/index.c					\
 		./src/push_swap.c				\
+		./src/sort3.c					\
 		./src/utils.c
 
 OBJ = $(SRC:.c=.o)

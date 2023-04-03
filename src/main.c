@@ -33,19 +33,7 @@ int main(int argc, char **argv)
             exit(0);
         }
         print_stack(&a, &b);
-        push(&b, pop(&a), 0);
-        print_stack(&a, &b);
-        push(&b, pop(&a), 0);
-        print_stack(&a, &b);
-        push(&b, pop(&a), 0);
-        print_stack(&a, &b);
-        push(&b, pop(&a), 0);
-        print_stack(&a, &b);
-        push(&b, pop(&a), 0);
-        print_stack(&a, &b);
-
-        push_swap_init(&a, &b);
-        print_stack(&a, &b);
+        execute(&a, &b);
     }
     return(0);
 }       

@@ -48,18 +48,24 @@ int add_node_front(t_stack *stack, t_node *newNode)
     return (1);
 }
 
-t_node *pop(t_stack *stack)
+int pop(t_stack *stack)
 {
-	t_node *tmp;
+	int tmp;
 
-	if (stack->size < 1)
-		return (NULL);
-	else if(!stack)
-		return (NULL);
-	tmp = stack->top;
-	stack->top->prev->next = stack->top->next;
-	stack->top->next->prev = stack->top->prev;
-	stack->top = stack->top->next;
+	if (stack->size < 1 || !stack)
+		return (0);
+	else
+	{
+		tmp = stack->top->data;
+		if(stack->top->data == stack->top->next->data)
+			stack->top = NULL;
+		else
+		{
+			stack->top->prev->next = stack->top->next;
+			stack->top->next->prev = stack->top->prev;
+			stack->top = stack->top->next;
+		}
+	}
 	stack->size--;
 	return(tmp);
 }

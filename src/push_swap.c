@@ -58,48 +58,88 @@ int find_match_number(int a_data, t_stack *b)
 	return(match);
 }
 
-int push_swap_init(t_stack *a, t_stack *b)
+// int push_swap_init(t_stack *a, t_stack *b)
+// {
+// 	t_utils utils;
+
+// 	init_utils(&utils);
+// 	(void)a;
+
+// 	int i;
+// 	static int sum;
+// 	t_node *tmp;
+
+// 	if(!a || !a->top)
+// 		return (0);
+// 	i = 0;
+// 	sum = 0;
+// 	tmp = a->top;
+// 	count_moves(a->top->data, a, &utils);
+// 	count_moves(find_match_number(a->top->data, b), b, &utils);
+// 	sum = sum_moves(&utils);
+// 	//a->top = a->top->next;
+
+// 	if(!a->top)
+// 		printf("ops!!1");
+// 	while(i < a->size )
+// 	{
+		
+// 		printf("top: %d\n", a->top->data);
+// 		count_moves(a->top->data, a, &utils);
+// 		print_utils(&utils);
+// 		count_moves(find_match_number(a->top->data, b), b, &utils);
+// 		print_utils(&utils);
+// 		//sum = sum_moves(&utils);
+// 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
+// 		{
+// 			sum = sum_moves(&utils);
+// 			break ; 
+// 		}
+// 		else if(sum_moves(&utils) < sum)
+// 			sum = sum_moves(&utils);
+// 		else
+// 			init_utils(&utils);
+// 		a->top = a->top->next;
+// 		i++;
+// 	}
+// 	a->top = tmp;
+// 	printf("movimentos: %d, numero mais barato de a: %d -> 
+// 	equivalente em b: %d\n", sum, utils.a_data, utils.b_data);
+// 	return(1);
+// }
+
+t_utils push_swap_init(t_stack *a, t_stack *b)
 {
 	t_utils utils;
+	t_utils tmp_utils;
 
 	init_utils(&utils);
-	// t_utils utils;
-	// init_utils(&utils);
-	//count_moves(*a, *b, utils);
-
-	printf("match number %d\n", find_match_number(-2, b));
-	// printf("highest number: %d\n", find_highest_number(b));
-	// printf("lowest number: %d\n", find_lowest_number(b));
-	// printf("index: %d\n", find_index(a->top->next->next->data, *a));
-
+	init_utils(&tmp_utils);
 	(void)a;
-	// print_utils(&utils); 
-	// int n = 3;
-	// count_moves(n, a, &utils);
-	// match = find_match_number(n, b);
-	// count_moves(match, b, &utils);
-	// print_utils(&utils); 
-	// printf("total de movimentos: %d\n", sum_moves(&utils));
 
 	int i;
 	static int sum;
 	t_node *tmp;
 
+	// if(!a || !a->top)
+	// 	return (0);
 	i = 0;
 	sum = 0;
 	tmp = a->top;
-	count_moves(a->top->data, a, &utils);
-	count_moves(find_match_number(a->top->data, b), b, &utils);
+	count_moves(tmp->data, a, &utils);
+	count_moves(find_match_number(tmp->data, b), b, &utils);
+	tmp_utils = utils;
 	sum = sum_moves(&utils);
 	//a->top = a->top->next;
 
+	if(!a->top)
+		printf("ops!!1");
 	while(i < a->size )
 	{
 		
 		printf("top: %d\n", a->top->data);
-		count_moves(a->top->data, a, &utils);
-		count_moves(find_match_number(a->top->data, b), b, &utils);
-		print_utils(&utils);
+		count_moves(tmp->data, a, &utils);
+		count_moves(find_match_number(tmp->data, b), b, &utils);
 		//sum = sum_moves(&utils);
 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
 		{
@@ -107,17 +147,19 @@ int push_swap_init(t_stack *a, t_stack *b)
 			break ; 
 		}
 		else if(sum_moves(&utils) < sum)
+		{
 			sum = sum_moves(&utils);
+			tmp_utils = utils;
+		}
 		else
 			init_utils(&utils);
-		a->top = a->top->next;
+		tmp = a->top->next;
 		i++;
 	}
-	a->top = tmp;
+	//a->top = tmp;
 	printf("movimentos: %d, numero mais barato de a: %d -> \
-	equivalente em b: %d\n", sum, utils.a_data, utils.b_data);
-
-	return(1);
+	equivalente em b: %d\n", sum, tmp_utils.a_data, tmp_utils.b_data);
+	return(tmp_utils);
 }
 
 int sum_moves(t_utils *utils)
