@@ -2,7 +2,7 @@
 
 void execute(t_stack *a, t_stack *b)
 {
-	t_utils u;
+	t_utils utils;
 	int i;
 
 	i = 0;
@@ -13,31 +13,9 @@ void execute(t_stack *a, t_stack *b)
 	print_stack(a, b);
 	while(i < a->size && a->size > 3)
 	{
-		u = push_swap_init(a, b);
-		sum_rr_rrr(&u);
-		while(u.a_rotate != 0 || u.b_rotate != 0 || u.a_reverse_rotate != 0 || u.b_reverse_rotate != 0)
-		{
-			if(u.a_rotate > 0)
-			{
-				rotate(a, 1);
-				u.a_rotate--;
-			}
-			if(u.b_rotate > 0)
-			{
-				rotate(b, 1);
-				u.b_rotate--;
-			}
-			if(u.a_reverse_rotate > 0)
-			{
-				reverse_rotate(a, 1);
-				u.a_reverse_rotate--;
-			}
-			if(u.b_reverse_rotate > 0)
-			{
-				reverse_rotate(b, 1);
-				u.b_reverse_rotate--;
-			}
-		}
+		utils = push_swap_init(a, b);
+		sum_rr_rrr(&utils);
+		run_utils(&utils, a, b);
 		push(b, newNode(pop(a)), 1);
 		print_stack(a, b);	
 		printf("stack a size --> %d\n", a->size);
@@ -47,6 +25,34 @@ void execute(t_stack *a, t_stack *b)
 	sort3(a);
 	print_stack(a, b);	
 }
+
+void run_utils(t_utils *u, t_stack *a, t_stack *b)
+{
+	while(u->a_rotate != 0 || u->b_rotate != 0 || u->a_reverse_rotate != 0 || u->b_reverse_rotate != 0)
+		{
+			if(u->a_rotate > 0)
+			{
+				rotate(a, 1);
+				u->a_rotate--;
+			}
+			if(u->b_rotate > 0)
+			{
+				rotate(b, 1);
+				u->b_rotate--;
+			}
+			if(u->a_reverse_rotate > 0)
+			{
+				reverse_rotate(a, 1);
+				u->a_reverse_rotate--;
+			}
+			if(u->b_reverse_rotate > 0)
+			{
+				reverse_rotate(b, 1);
+				u->b_reverse_rotate--;
+			}
+		}
+}
+
 
 void sum_rr_rrr(t_utils *utils)
 {
@@ -115,4 +121,16 @@ int is_organized(t_stack stack)
 		i++;
 	}
 	return (1);
+}
+
+void push_back(t_stack *a, t_stack *b)
+{
+	t_utils utils;
+	init_utils(&utils);
+	while(b->size > 0)
+	{
+		count_moves(find_match_number(b->top->data, a), a, &utils);
+		run_utils(&utils, a, b);
+		push(a, newNode(pop(b)), 1);
+	}
 }

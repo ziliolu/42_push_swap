@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:57:47 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/03 19:28:59 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:51:17 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int         verify_args(int argc, char **argv);
 void        execute(t_stack *a, t_stack *b);
 int         is_organized(t_stack stack);
 void        sum_rr_rrr(t_utils *utils);
+void push_back(t_stack *a, t_stack *b);
+void run_utils(t_utils *u, t_stack *a, t_stack *b);
 
 // ====== index ======
 // int         find_index(t_stack stack, t_node *node);
@@ -97,6 +99,7 @@ int         find_index(int data, t_stack stack);
 t_utils     push_swap_init(t_stack *a, t_stack *b);
 void count_moves(int data, t_stack *stack, t_utils *utils);
 int sum_moves(t_utils *utils);
+int find_match_number(int a_data, t_stack *b);
 
 int sort3(t_stack *stack);
 #endif 

@@ -34,6 +34,8 @@ int main(int argc, char **argv)
         }
         print_stack(&a, &b);
         execute(&a, &b);
+        push_back(&a, &b);
+        print_stack(&a, &b);
     }
     return(0);
 }       
