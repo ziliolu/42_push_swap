@@ -37,8 +37,8 @@ int main(int argc, char **argv)
         }
         //print_stack(&a, &b);
         execute(&a, &b);
-        //print_stack(&a, &b);
-        //printf("is organized: %d\n", is_organized(a));
+        print_stack(&a, &b);
+        printf("is organized: %d\n", is_organized(a));
     }
     return(0);
 }       

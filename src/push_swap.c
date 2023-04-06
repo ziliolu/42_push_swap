@@ -82,6 +82,36 @@ int find_perfect_match(int data, t_stack *stack)
 	return(match);
 }
 
+t_stack copy_stack(t_stack *stack)
+{
+	t_stack tmp_stack;
+	t_stack new_stack;
+
+	int i;
+
+	tmp_stack.size = 0;
+	tmp_stack.top = NULL;
+	new_stack.size = 0;
+	new_stack.top = NULL;
+
+	i = 0;
+	while(i < stack->size)
+	{
+		push(&tmp_stack, newNode(stack->top->data), 0);
+		i++;
+		stack->top = stack->top->next;
+	}
+	i = 0;
+	while (i < tmp_stack.size)
+	{
+		push(&new_stack, newNode(tmp_stack.top->data), 0);
+		i++;
+		tmp_stack.top = tmp_stack.top->next;		
+	}
+	// dar free da stack temporaria!!!!!
+	return(new_stack);
+}
+
 t_utils push_swap_init(t_stack *a, t_stack *b)
 {
 	t_utils utils;
@@ -93,30 +123,36 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 
 	int i;
 	static int sum;
-	t_node *tmp;
+	//t_node *tmp;
+	t_stack a_tmp;
+	a_tmp = copy_stack(a);
 
 	// if(!a || !a->top)
 	// 	return (0);
 	i = 0;
 	sum = 0;
-	tmp = a->top;
-	count_moves(tmp->data, a, &utils);
-	count_moves(find_match_number(tmp->data, b, 0), b, &utils);
+	count_moves(a_tmp.top->data, a, &utils);
+	count_moves(find_match_number(a_tmp.top->data, b, 0), b, &utils);
 	tmp_utils = utils;
 	sum = sum_moves(&utils);
-	//a->top = a->top->next;
+	//a_tmp.top = a_tmp.top->next;
 
-	if(!a->top)
+	if(!a_tmp.top)
 		printf("ops!!1");
-	while(i < a->size )
+	while(i < a_tmp.size )
 	{
-		count_moves(tmp->data, a, &utils);
-		count_moves(find_match_number(tmp->data, b, 0), b, &utils);
+		//printf("entrando em analise\n");
+		count_moves(a_tmp.top->data, a, &utils);
+		count_moves(find_match_number(a_tmp.top->data, b, 0), b, &utils);
 		sum_rr_rrr(&utils);
+		//print_utils(&utils);
+		//print_stack(a, b);
+		///printf("sum: %d\n", sum);
 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
 		{
 			sum = sum_moves(&utils);
 			tmp_utils = utils;
+			//printf("saindo pelo 1/0");
 			break ; 
 		}
 		else if(sum_moves(&utils) < sum)
@@ -126,33 +162,89 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 		}
 		else
 			init_utils(&utils);
-		//print_utils(&utils);
-		//print_stack(a, b);
-		tmp = a->top->next;
+		a_tmp.top = a_tmp.top->next;
+		//printf("tmp do primeiro: %d\n", a_tmp.top->data);
 		i++;
 	}
-	//a->top = tmp;
+	//a_tmp.top = tmp;
 	//print_utils(&tmp_utils);
-	return(tmp_utils);
+	//printf("decisao final: ");
+	//print_utils(&utils);
+	return(utils);
 }
 
-int sum_moves(t_utils *utils)
+// t_utils push_swap_init(t_stack *a, t_stack *b)
+// {
+// 	t_utils utils;
+// 	t_utils tmp_utils;
+
+// 	init_utils(&utils);
+// 	init_utils(&tmp_utils);
+// 	(void)a;
+
+// 	int i;
+// 	static int sum;
+// 	t_node *tmp;
+
+// 	// if(!a || !a->top)
+// 	// 	return (0);
+// 	i = 0;
+// 	sum = 0;
+// 	tmp = a->top;
+// 	count_moves(tmp->data, a, &utils);
+// 	count_moves(find_match_number(tmp->data, b, 0), b, &utils);
+// 	tmp_utils = utils;
+// 	sum = sum_moves(&utils);
+// 	//a->top = a->top->next;
+
+// 	if(!a->top)
+// 		printf("ops!!1");
+// 	while(i < a->size )
+// 	{
+// 		count_moves(tmp->data, a, &utils);
+// 		count_moves(find_match_number(tmp->data, b, 0), b, &utils);
+// 		sum_rr_rrr(&utils);
+// 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
+// 		{
+// 			sum = sum_moves(&utils);
+// 			tmp_utils = utils;
+// 			break ; 
+// 		}
+// 		else if(sum_moves(&utils) < sum)
+// 		{
+// 			sum = sum_moves(&utils);
+// 			tmp_utils = utils;
+// 		}
+// 		else
+// 			init_utils(&utils);
+// 		//print_utils(&utils);
+// 		//print_stack(a, b);
+// 		tmp = a->top->next;
+// 		printf("tmp do primeiro: %d\n", tmp->data);
+// 		i++;
+// 	}
+// 	//a->top = tmp;
+// 	//print_utils(&tmp_utils);
+// 	return(tmp_utils);
+// }
+
+int sum_moves(t_utils *u)
 {
 	int sum;
 
 	sum = 0;
-	if (utils->a_rotate)
-		sum += utils->a_rotate;
-	if(utils->b_rotate)
-		sum += utils->b_rotate;
-	if(utils->a_reverse_rotate)
-		sum += utils->a_reverse_rotate;
-	if(utils->b_reverse_rotate)
-		sum += utils->b_reverse_rotate;
-	if(utils->rr)
-		sum += utils->rr;
-	if(utils->rrr)
-		sum += utils->rrr;	
+	if (u->a_rotate)
+		sum += u->a_rotate;
+	if(u->b_rotate)
+		sum += u->b_rotate;
+	if(u->a_reverse_rotate)
+		sum += u->a_reverse_rotate;
+	if(u->b_reverse_rotate)
+		sum += u->b_reverse_rotate;
+	if(u->rr)
+		sum += u->rr;
+	if(u->rrr)
+		sum += u->rrr;	
 	return(sum);
 }
 

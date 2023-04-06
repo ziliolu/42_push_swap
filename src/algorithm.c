@@ -25,23 +25,30 @@ int execute(t_stack *a, t_stack *b)
 	i = a->size;
 	while(i > 3 && is_organized(*a) == -1)
 	{
+		//printf("==== enter ====\n");
 		utils = push_swap_init(a, b);
+		//print_utils(&utils);
 		sum_rr_rrr(&utils);
+		//print_utils(&utils);
+		//printf("==== finish ====\n");
+		//printf("\nprintando...\n");
+		//print_utils(&utils);
 		run_utils(&utils, a, b);
+		//print_stack(a, b);
 		push(b, newNode(pop(a)), 1);
 		i--;
 	}
 	sort3(a);
 	i = b->size;
-	// while(i > 0)
-	// {
-	// 	utils = push_swap(b, a);
-	// 	sum_rr_rrr(&utils);
-	// 	run_utils(&utils, a, b);
-	// 	push(a, newNode(pop(b)), 1);
-	// 	i--;
-	// }
-	//organize_stack_a(init_utils(&utils), a, b);
+	while(i > 0)
+	{
+		utils = push_swap(b, a);
+		sum_rr_rrr(&utils);
+		run_utils(&utils, a, b);
+		push(a, newNode(pop(b)), 1);
+		i--;
+	}
+	organize_stack_a(init_utils(&utils), a, b);
 	return (1);
 }
 
@@ -77,6 +84,7 @@ t_utils push_swap(t_stack *origin, t_stack *dest)
 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
 		{
 			sum = sum_moves(&utils);
+			tmp_utils = utils;
 			break ; 
 		}
 		else if(sum_moves(&utils) < sum)
@@ -86,7 +94,8 @@ t_utils push_swap(t_stack *origin, t_stack *dest)
 		}
 		else
 			init_utils(&utils);
-		tmp = origin->top->next;
+		tmp = origin->top->next; //retirar tmp???? igual ao outro push 
+		//printf("tmp: %d\n", tmp->data);
 		i++;
 	}
 	return(tmp_utils);
@@ -95,7 +104,7 @@ t_utils push_swap(t_stack *origin, t_stack *dest)
 void final_organization(t_stack *a, t_stack *b)
 {
 	t_utils utils;
-	while(b-> size > 0)
+	while(b->size > 0)
 	{
 		push_back(a, b);
 	}
@@ -149,7 +158,7 @@ void run_utils(t_utils *u, t_stack *a, t_stack *b)
 			}
 			if(u->rrr > 0)
 			{
-				rr(a, b);
+				rrr(a, b);
 				u->rrr--;
 			}
 		}

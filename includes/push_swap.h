@@ -105,6 +105,7 @@ int sum_moves(t_utils *utils);
 int find_match_number(int data, t_stack *stack, bool perfect_match);
 int find_lowest_number(t_stack *b);
 int find_highest_number(t_stack *b);
+t_stack copy_stack(t_stack *stack);
 
 int find_perfect_match(int data, t_stack *stack);
 int sort3(t_stack *stack);
