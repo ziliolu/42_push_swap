@@ -10,7 +10,7 @@ void	init_structs(t_stack *a, t_stack *b)
     b->charac = 'b';
 }
 
-void init_utils(t_utils *utils)
+t_utils *init_utils(t_utils *utils)
 {
     utils->a_data = 0;
     utils->b_data = 0;
@@ -20,4 +20,5 @@ void init_utils(t_utils *utils)
     utils->b_reverse_rotate = 0;
     utils->rr = 0;
     utils->rrr = 0;
+    return(utils);
 }

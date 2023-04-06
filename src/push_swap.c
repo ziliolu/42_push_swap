@@ -35,78 +35,52 @@ int find_lowest_number(t_stack *b)
 	return(min);
 }
 
-int find_match_number(int a_data, t_stack *b)
+int find_match_number(int data, t_stack *stack, bool perfect_match)
 {
 	int i;
 	int match;
 
-	(void)a_data;
 	i = 0;
-	match = find_lowest_number(b);
-	if (a_data > find_highest_number(b) || a_data < find_lowest_number(b))
-		return (find_highest_number(b));
+	match = find_lowest_number(stack);
+	if (data > find_highest_number(stack))
+		return (find_highest_number(stack));
+	else if(data < find_lowest_number(stack) && perfect_match == 0)
+		return (find_highest_number(stack));
 	else
 	{
-		while(i < b->size)
+		while(i < stack->size)
 		{
-			if(b->top->data < a_data && b->top->data > match)
-				match = b->top->data;
-			b->top = b->top->next;
+			if(stack->top->data < data && stack->top->data > match)
+				match = stack->top->data;
+			stack->top = stack->top->next;
 			i++;
 		}
 	}
 	return(match);
 }
 
-// int push_swap_init(t_stack *a, t_stack *b)
-// {
-// 	t_utils utils;
 
-// 	init_utils(&utils);
-// 	(void)a;
+int find_perfect_match(int data, t_stack *stack)
+{
+	int i;
+	int match;
 
-// 	int i;
-// 	static int sum;
-// 	t_node *tmp;
-
-// 	if(!a || !a->top)
-// 		return (0);
-// 	i = 0;
-// 	sum = 0;
-// 	tmp = a->top;
-// 	count_moves(a->top->data, a, &utils);
-// 	count_moves(find_match_number(a->top->data, b), b, &utils);
-// 	sum = sum_moves(&utils);
-// 	//a->top = a->top->next;
-
-// 	if(!a->top)
-// 		printf("ops!!1");
-// 	while(i < a->size )
-// 	{
-		
-// 		printf("top: %d\n", a->top->data);
-// 		count_moves(a->top->data, a, &utils);
-// 		print_utils(&utils);
-// 		count_moves(find_match_number(a->top->data, b), b, &utils);
-// 		print_utils(&utils);
-// 		//sum = sum_moves(&utils);
-// 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
-// 		{
-// 			sum = sum_moves(&utils);
-// 			break ; 
-// 		}
-// 		else if(sum_moves(&utils) < sum)
-// 			sum = sum_moves(&utils);
-// 		else
-// 			init_utils(&utils);
-// 		a->top = a->top->next;
-// 		i++;
-// 	}
-// 	a->top = tmp;
-// 	printf("movimentos: %d, numero mais barato de a: %d -> 
-// 	equivalente em b: %d\n", sum, utils.a_data, utils.b_data);
-// 	return(1);
-// }
+	i = 0;
+	match = find_highest_number(stack);
+	if (data > find_highest_number(stack))
+		return (find_lowest_number(stack));
+	else
+	{
+		while(i < stack->size)
+		{
+			if(stack->top->data > data && stack->top->data < match)
+				match = stack->top->data;
+			stack->top = stack->top->next;
+			i++;
+		}
+	}
+	return(match);
+}
 
 t_utils push_swap_init(t_stack *a, t_stack *b)
 {
@@ -127,7 +101,7 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 	sum = 0;
 	tmp = a->top;
 	count_moves(tmp->data, a, &utils);
-	count_moves(find_match_number(tmp->data, b), b, &utils);
+	count_moves(find_match_number(tmp->data, b, 0), b, &utils);
 	tmp_utils = utils;
 	sum = sum_moves(&utils);
 	//a->top = a->top->next;
@@ -136,14 +110,13 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 		printf("ops!!1");
 	while(i < a->size )
 	{
-		
-		printf("top: %d\n", a->top->data);
 		count_moves(tmp->data, a, &utils);
-		count_moves(find_match_number(tmp->data, b), b, &utils);
-		//sum = sum_moves(&utils);
+		count_moves(find_match_number(tmp->data, b, 0), b, &utils);
+		sum_rr_rrr(&utils);
 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
 		{
 			sum = sum_moves(&utils);
+			tmp_utils = utils;
 			break ; 
 		}
 		else if(sum_moves(&utils) < sum)
@@ -153,12 +126,13 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 		}
 		else
 			init_utils(&utils);
+		//print_utils(&utils);
+		//print_stack(a, b);
 		tmp = a->top->next;
 		i++;
 	}
 	//a->top = tmp;
-	printf("movimentos: %d, numero mais barato de a: %d -> \
-	equivalente em b: %d\n", sum, tmp_utils.a_data, tmp_utils.b_data);
+	//print_utils(&tmp_utils);
 	return(tmp_utils);
 }
 
@@ -167,15 +141,18 @@ int sum_moves(t_utils *utils)
 	int sum;
 
 	sum = 0;
-	if (utils->b_rotate > utils->a_rotate)
-		sum += utils->b_rotate;
-	else 
+	if (utils->a_rotate)
 		sum += utils->a_rotate;
-	
-	if (utils->b_reverse_rotate > utils->a_reverse_rotate)
-		sum += utils->b_reverse_rotate;
-	else 
+	if(utils->b_rotate)
+		sum += utils->b_rotate;
+	if(utils->a_reverse_rotate)
 		sum += utils->a_reverse_rotate;
+	if(utils->b_reverse_rotate)
+		sum += utils->b_reverse_rotate;
+	if(utils->rr)
+		sum += utils->rr;
+	if(utils->rrr)
+		sum += utils->rrr;	
 	return(sum);
 }
 
@@ -190,13 +167,9 @@ void count_moves(int data, t_stack *stack, t_utils *utils)
 
 	if(stack->charac == 'a')
 		utils->a_data = data;
-	if(stack->charac == 'b')
+	else if(stack->charac == 'b')
 		utils->b_data = data;
-	if(index_node == 0)
-	{
-		printf("index 0 - nao faz nada\n");
-	}
-	else if(index_node == middle_index || index_node <= middle_index)
+	if(index_node == middle_index || index_node <= middle_index)
 	{
 		if(stack->charac == 'a')
 			utils->a_rotate = index_node;

@@ -24,18 +24,21 @@ int main(int argc, char **argv)
     if(verify_args(argc, argv) == 1)
     {
         init_structs(&a, &b);
-        print_stack(&a, &b);
+        //printf("entrando no while da main\n");
         while(--argc >= i)
-            push(&a, newNode(atoi(argv[argc])), 0);
+        {
+           push(&a, newNode(atoi(argv[argc])), 0);
+
+        }
         if(is_organized(a) == 1)
         {
             printf("its already organized, nothing to be done ;)");
             exit(0);
         }
-        print_stack(&a, &b);
+        //print_stack(&a, &b);
         execute(&a, &b);
-        push_back(&a, &b);
-        print_stack(&a, &b);
+        //print_stack(&a, &b);
+        //printf("is organized: %d\n", is_organized(a));
     }
     return(0);
 }       

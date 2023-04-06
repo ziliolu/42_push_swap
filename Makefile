@@ -1,5 +1,5 @@
 NAME = push_swap.a
-EXEC = p
+EXEC = push_swap
 
 SRC =	./src/main.c					\
 		./src/destroy.c					\
