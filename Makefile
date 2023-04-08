@@ -2,7 +2,6 @@ NAME = push_swap.a
 EXEC = push_swap
 
 SRC =	./src/main.c					\
-		./src/destroy.c					\
 		./src/init_structs.c			\
 		./src/print_stack.c				\
 		./src/push.c					\
@@ -18,7 +17,7 @@ SRC =	./src/main.c					\
 		./src/utils.c
 
 OBJ = $(SRC:.c=.o)
-CFLAGS = -Wextra -Werror -Wall -g
+CFLAGS = -Wextra -Werror -Wall -g #-fsanitize=address
 CC = cc
 AR = ar rc
 RM = rm -f 
@@ -34,3 +33,5 @@ clean: $(OBJ)
 
 fclean: clean 
 	$(RM) $(NAME) $(EXEC)
+
+re: clean all

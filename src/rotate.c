@@ -5,7 +5,7 @@ int rotate(t_stack *stack, bool op)
     if (stack->size >= 2)
     {
         stack->top = stack->top->next;
-        if(op)
+        if(op == 1)
             printf("r%c\n", stack->charac);
         return (1);
     }

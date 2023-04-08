@@ -1,32 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   index.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/08 11:23:48 by lpicoli-          #+#    #+#             */
+/*   Updated: 2023/04/08 11:24:49 by lpicoli-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-// int find_index(t_stack stack, t_node *node)
-// {
-//     t_node *tmp;
-//     int i;
-
-//     tmp = stack.top;
-//     i = 0;
-//     while(i < stack.size)
-//     {
-//         if(tmp == node)
-//             break;
-//         tmp = tmp->next;
-//         i++;
-//     }
-//     return(i);
-// }
-
-int find_index(int data, t_stack stack)
+int	find_index(int data, t_stack stack)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while(++i < stack.size)
-    {
-        if(stack.top->data == data)
-            return (i);
-        stack.top = stack.top->next;
-    }
-    return (i);
+	i = -1;
+	while (++i < stack.size)
+	{
+		if (stack.top->data == data)
+			return (i);
+		stack.top = stack.top->next;
+	}
+	return (i);
 }

@@ -78,11 +78,12 @@ void        print_info(t_stack stack);
 void        print_utils(t_utils *utils);
 
 // ====== panic =======
-int         panic(char *str);
+int         panic(char *str, t_stack *a, t_stack *b);
+int free_stack(t_stack *stack);
 
 // ====== verify_args =====
 int         verify_doubles(int argc, char **argv);
-int         verify_args(int argc, char **argv);
+int verify_args(int argc, char **argv, t_stack *a, t_stack *b);
 
 // ====== algorithm ======
 int        execute(t_stack *a, t_stack *b);

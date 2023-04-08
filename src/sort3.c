@@ -40,7 +40,8 @@ int sort3(t_stack *stack)
 int sort5(t_stack *a, t_stack *b)
 {
     push(b, newNode(pop(a)), 1);
-    push(b, newNode(pop(a)), 1);
+    //push(b, newNode(pop(a)), 1); importante voltar!!!!!!
+
     sort3(a);
     final_organization(a, b);
     return (1);

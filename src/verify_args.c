@@ -24,7 +24,7 @@ int ft_is_number(char *str)
 	return (1);
 }
 
-int verify_args(int argc, char **argv)
+int verify_args(int argc, char **argv, t_stack *a, t_stack *b)
 {
 	int i;
 
@@ -34,13 +34,13 @@ int verify_args(int argc, char **argv)
     while (i < argc)
     {
 		if (ft_is_number(argv[i]) == -1)
-			return (panic("not all arguments are integers"));
+			return (panic("not all arguments are integers", a, b));
         else if (atoi(argv[i]) > INT_MAX || atoi(argv[i]) < INT_MIN)
-            return (panic("arguments outside the range of integers"));
+            return (panic ("arguments outside the range of integers", a, b));
         i++;
     }
 	if (verify_doubles(argc, argv) == -1)
-        return(panic("arguments with duplicate numbers"));
+        return(panic("double elements", a, b));
 	return (1);
 }
 

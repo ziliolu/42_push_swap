@@ -8,6 +8,8 @@ int find_highest_number(t_stack *b)
 
 	i = 0;
 	max = 0;
+	if(!b->top || !b)
+		return(0);
 	while(i < b->size)
 	{
 		if(b->top->data > max)
@@ -112,10 +114,72 @@ t_stack copy_stack(t_stack *stack)
 	return(new_stack);
 }
 
+// t_utils push_swap_init(t_stack *a, t_stack *b)
+// {
+// 	t_utils utils;
+// 	t_utils tmp_utils;
+
+// 	init_utils(&utils);
+// 	init_utils(&tmp_utils);
+// 	(void)a;
+
+// 	int i;
+// 	static int sum;
+// 	//t_node *tmp;
+// 	t_stack a_tmp;
+// 	a_tmp = copy_stack(a);
+
+// 	// if(!a || !a->top)
+// 	// 	return (0);
+// 	i = 0;
+// 	sum = 0;
+// 	count_moves(a_tmp.top->data, a, &utils);
+// 	count_moves(find_match_number(a_tmp.top->data, b, 0), b, &utils);
+// 	tmp_utils = utils;
+// 	sum = sum_moves(&utils);
+// 	//a_tmp.top = a_tmp.top->next;
+
+// 	if(!a_tmp.top)
+// 		printf("ops!!1");
+// 	while(i < a_tmp.size )
+// 	{
+// 		//printf("entrando em analise\n");
+// 		count_moves(a_tmp.top->data, a, &utils);
+// 		count_moves(find_match_number(a_tmp.top->data, b, 0), b, &utils);
+// 		sum_rr_rrr(&utils);
+// 		//print_utils(&utils);
+// 		//print_stack(a, b);
+// 		///printf("sum: %d\n", sum);
+// 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
+// 		{
+// 			sum = sum_moves(&utils);
+// 			tmp_utils = utils;
+// 			//printf("saindo pelo 1/0");
+// 			break ; 
+// 		}
+// 		else if(sum_moves(&utils) < sum)
+// 		{
+// 			sum = sum_moves(&utils);
+// 			tmp_utils = utils;
+// 		}
+// 		else
+// 			init_utils(&utils);
+// 		a_tmp.top = a_tmp.top->next;
+// 		//printf("tmp do primeiro: %d\n", a_tmp.top->data);
+// 		i++;
+// 	}
+// 	//a_tmp.top = tmp;
+// 	//print_utils(&tmp_utils);
+// 	//printf("decisao final: ");
+// 	//print_utils(&utils);
+// 	return(utils);
+// }
+
 t_utils push_swap_init(t_stack *a, t_stack *b)
 {
 	t_utils utils;
 	t_utils tmp_utils;
+	t_stack a_tmp;
 
 	init_utils(&utils);
 	init_utils(&tmp_utils);
@@ -124,35 +188,33 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 	int i;
 	static int sum;
 	//t_node *tmp;
-	t_stack a_tmp;
-	a_tmp = copy_stack(a);
 
 	// if(!a || !a->top)
 	// 	return (0);
 	i = 0;
 	sum = 0;
+	//tmp = a->top;
+	a_tmp = copy_stack(a);
+	//print_stack(a, &a_tmp);
 	count_moves(a_tmp.top->data, a, &utils);
 	count_moves(find_match_number(a_tmp.top->data, b, 0), b, &utils);
 	tmp_utils = utils;
 	sum = sum_moves(&utils);
-	//a_tmp.top = a_tmp.top->next;
+	//a->top = a->top->next;
 
-	if(!a_tmp.top)
+	if(!a->top)
 		printf("ops!!1");
 	while(i < a_tmp.size )
 	{
-		//printf("entrando em analise\n");
+		//printf("top tmp: %d\n", a_tmp.top->data);
+		//printf("top a: %d\n", a->top->data);
 		count_moves(a_tmp.top->data, a, &utils);
 		count_moves(find_match_number(a_tmp.top->data, b, 0), b, &utils);
 		sum_rr_rrr(&utils);
-		//print_utils(&utils);
-		//print_stack(a, b);
-		///printf("sum: %d\n", sum);
 		if(sum_moves(&utils) == 1 || sum_moves(&utils) == 0)
 		{
 			sum = sum_moves(&utils);
 			tmp_utils = utils;
-			//printf("saindo pelo 1/0");
 			break ; 
 		}
 		else if(sum_moves(&utils) < sum)
@@ -162,15 +224,16 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 		}
 		else
 			init_utils(&utils);
+		//print_utils(&utils);
+		//print_stack(a, b);
 		a_tmp.top = a_tmp.top->next;
-		//printf("tmp do primeiro: %d\n", a_tmp.top->data);
+		//printf("tmp do primeiro: %d\n", tmp->data);
 		i++;
 	}
-	//a_tmp.top = tmp;
+	//a->top = tmp;
 	//print_utils(&tmp_utils);
-	//printf("decisao final: ");
-	//print_utils(&utils);
-	return(utils);
+	free_stack(&a_tmp);
+	return(tmp_utils);
 }
 
 // t_utils push_swap_init(t_stack *a, t_stack *b)
@@ -220,7 +283,7 @@ t_utils push_swap_init(t_stack *a, t_stack *b)
 // 		//print_utils(&utils);
 // 		//print_stack(a, b);
 // 		tmp = a->top->next;
-// 		printf("tmp do primeiro: %d\n", tmp->data);
+// 		//printf("tmp do primeiro: %d\n", tmp->data);
 // 		i++;
 // 	}
 // 	//a->top = tmp;
