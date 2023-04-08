@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpicoli- < lpicoli-@student.42porto.com    +#+  +:+       +#+        */
+/*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:57:47 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/04 13:03:26 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 14:44:28 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdbool.h>
+#include "../libft/printf/ft_printf.h"
 
 typedef struct s_node 
 {
@@ -43,7 +44,6 @@ typedef struct s_utils
     int rr;
     int rrr;
 }               t_utils;
-
 
 // ====== utils =====
 t_node      *newNode(int data);
