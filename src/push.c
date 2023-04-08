@@ -6,7 +6,7 @@ int push(t_stack *stack, t_node *node, bool op)
         return (-1);
     stack->size++;
     if(op == 1)
-        printf("p%c\n", stack->charac);
+        ft_printf("p%c\n", stack->charac);
     if(!stack->top)
     {
         stack->top = node;

@@ -20,21 +20,16 @@ int execute(t_stack *a, t_stack *b)
 		sort5(a, b);
 		return (1);
 	}
-	push(b, newNode(pop(a)), 1);
-	push(b, newNode(pop(a)), 1);
-	//push(b, pop(a), 1);
-	//push(b, pop(a), 1);
+	push(b, new_node(pop(a)), 1);
+	push(b, new_node(pop(a)), 1);
 	i = a->size;
 	while(i > 3 && is_organized(*a) == -1)
 	{
-		//print_stack(a, b);
 		utils = push_swap_init(a, b);
 		sum_rr_rrr(&utils);
 		run_utils(&utils, a, b);
 
-		push(b, newNode(pop(a)), 1);
-		//print_stack(a, b);
-		//push(b, pop(a), 1);
+		push(b, new_node(pop(a)), 1);
 		i--;
 	}
 	sort3(a);
@@ -44,12 +39,10 @@ int execute(t_stack *a, t_stack *b)
 		utils = push_swap(b, a);
 		sum_rr_rrr(&utils);
 		run_utils(&utils, a, b);
-		push(a, newNode(pop(b)), 1);
-		//push(a, pop(b), 1);
+		push(a, new_node(pop(b)), 1);
 		i--;
 	}
 	organize_stack_a(init_utils(&utils), a, b);
-	//print_stack(a, b);
 	return (1);
 }
 
@@ -93,8 +86,7 @@ t_utils push_swap(t_stack *origin, t_stack *dest)
 		}
 		else
 			init_utils(&utils);
-		tmp.top = tmp.top->next; //retirar tmp???? igual ao outro push 
-		//printf("tmp: %d\n", tmp->data);
+		tmp.top = tmp.top->next; 
 		i++;
 	}
 	free_stack(&tmp);
@@ -124,12 +116,8 @@ void push_back(t_stack *a, t_stack *b)
 
 	count_moves(find_perfect_match(b->top->data, a), a, &utils);
 	run_utils(&utils, a, b);
-	push(a, newNode(pop(b)), 1);
-	//push(a, pop(b), 1);
+	push(a, new_node(pop(b)), 1);
 }
-
-
-
 
 void sum_rr_rrr(t_utils *utils)
 {

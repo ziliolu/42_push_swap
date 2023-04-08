@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:34:28 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 11:35:02 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:41:08 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	reverse_rotate(t_stack *stack, bool op)
 	{
 		stack->top = stack->top->prev;
 		if (op)
-			printf("rr%c\n", stack->charac);
+			ft_printf("rr%c\n", stack->charac);
 		return (1);
 	}
 	return (-1);
@@ -28,7 +28,7 @@ int	rrr(t_stack *a, t_stack *b)
 {
 	if (a->size >= 2 && b->size >= 2)
 	{
-		printf("rrr\n");
+		ft_printf("rrr\n");
 		reverse_rotate(a, 0);
 		reverse_rotate(b, 0);
 		return (1);

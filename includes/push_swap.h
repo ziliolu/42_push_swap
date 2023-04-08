@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:57:47 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:03:31 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:48:01 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_utils
 }               t_utils;
 
 // ====== utils =====
-t_node      *newNode(int data);
+t_node      *new_node(int data);
 t_node      *find_last_node(t_stack stack);
 int         add_node_front(t_stack *stack, t_node *newNode);
 int pop(t_stack *stack);

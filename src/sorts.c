@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:36:24 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 11:37:17 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:49:30 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	sort3(t_stack *stack)
 
 int	sort5(t_stack *a, t_stack *b)
 {
-	push(b, newNode(pop(a)), 1);
-	push(b, newNode(pop(a)), 1);
+	push(b, new_node(pop(a)), 1);
+	push(b, new_node(pop(a)), 1);
 	sort3(a);
 	final_organization(a, b);
 	return (1);
