@@ -23,7 +23,7 @@ CC = cc
 AR = ar rc
 RM = rm -f 
 
-all: $(NAME)  $(LIBFT_A)
+all: $(LIBFT_A) $(NAME) 
 	$(CC) $(NAME) $(LIBFT_A) -o $(EXEC)
 	
 $(LIBFT_A):
@@ -37,6 +37,7 @@ clean: $(OBJ)
 	$(RM) $(OBJ)
 
 fclean: clean 
+	make fclean -C libft
 	$(RM) $(NAME) $(EXEC)
 
 re: clean all

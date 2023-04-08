@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:57:47 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 14:44:28 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:03:31 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_node      *newNode(int data);
 t_node      *find_last_node(t_stack stack);
 int         add_node_front(t_stack *stack, t_node *newNode);
 int pop(t_stack *stack);
+void run_reverse_rotate(t_utils *u, t_stack *a, t_stack *b);
 
 // ====== init structs =====
 void        init_structs(t_stack *a, t_stack *b);

@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:28:58 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 11:30:22 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:11:19 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	panic(char *str, t_stack *a, t_stack *b)
 	printf ("Error: %s\n", str); //ft_printf!
 	free_stack(a);
 	free_stack(b);
-	return (1);
+	return (-1);
 }
 
 int	free_stack(t_stack *stack)

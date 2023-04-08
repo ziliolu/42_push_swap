@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:20:09 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 11:28:42 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:16:32 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int argc, char **argv)
 			exit(0);
 		}
 		execute(&a, &b);
+		ft_printf("its organized: %d\n", is_organized(a));
+		//print_stack(&a, &b);
 	}
 	free_stack(&a);
 	free_stack(&b);
