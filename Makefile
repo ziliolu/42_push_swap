@@ -13,9 +13,13 @@ SRC =	./src/main.c					\
 		./src/panic.c					\
 		./src/algorithm.c				\
 		./src/index.c					\
-		./src/push_swap.c				\
+		./src/push_swap_init.c			\
+		./src/push_swap_back.c			\
 		./src/sorts.c					\
-		./src/utils.c
+		./src/find_specific_numbers.c	\
+		./src/sum_moves.c				\
+		./src/run_utils.c				\
+		./src/func_utils.c				
 
 OBJ = $(SRC:.c=.o)
 CFLAGS = -Wextra -Werror -Wall -g #-fsanitize=address

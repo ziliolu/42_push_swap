@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 21:20:09 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:54:06 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/17 08:05:22 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ int	main(int argc, char **argv)
 		}
 		if (is_organized(a) == 1)
 		{
-			ft_printf("It's already organized, nothing to be done :)\n");
-			exit(0);
+			free_stack(&a);
+			free_stack(&b);
+			return (0);
 		}
-		execute(&a, &b);
-		ft_printf("its organized: %d\n", is_organized(a));
+		else
+			execute(&a, &b);
 	}
 	free_stack(&a);
 	free_stack(&b);
-	return (0);
+	return (1);
 }

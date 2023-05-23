@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   run_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 15:45:38 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:48:18 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:17:01 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,55 +53,4 @@ void	run_reverse_rotate(t_utils *u, t_stack *a, t_stack *b)
 		rrr(a, b);
 		u->rrr--;
 	}
-}
-
-t_node	*new_node(int data)
-{
-	t_node	*node;
-
-	node = malloc(sizeof(t_node));
-	if (node)
-	{
-		node->data = data;
-		node->next = NULL;
-		node->prev = NULL;
-	}
-	return (node);
-}
-
-t_node	*find_last_node(t_stack stack)
-{
-	int		i;
-	t_node	*node;
-
-	i = 0;
-	node = stack.top;
-	while (i < stack.size && node->next != stack.top)
-	{
-		node = node->next;
-		i++;
-	}
-	return (node);
-}
-
-int	pop(t_stack *stack)
-{
-	int	tmp;
-
-	if (stack->size < 1 || !stack)
-		return (0);
-	else
-	{
-		tmp = stack->top->data;
-		if (stack->top->data == stack->top->next->data)
-			stack->top = NULL;
-		else
-		{
-			stack->top->prev->next = stack->top->next;
-			stack->top->next->prev = stack->top->prev;
-			stack->top = stack->top->next;
-		}
-	}
-	stack->size--;
-	return (tmp);
 }
