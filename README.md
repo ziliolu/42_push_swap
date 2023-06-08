@@ -1,6 +1,6 @@
 # Push Swap
 
-![Push Swap](https://your-image-url.com)
+![Push Swap](https://im5.ezgif.com/tmp/ezgif-5-75bac2ef05.gif)
 
 ## Table of Contents
 
