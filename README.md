@@ -8,8 +8,7 @@
 - [Algorithm](#algorithm)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Disclaimer] (#disclaimer)
 
 ## Introduction
 
@@ -59,7 +58,7 @@ To use Push Swap, follow these steps:
    pb
    rra
    ...
-## 🚨 DISCLAIMER 
+## 🚨 Disclaimer
 
 Maybe you could notice a different coding style.
 At 42 we need to follow some rules according to the coding standard of the school such as:
