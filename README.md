@@ -6,6 +6,7 @@
 
 - [Introduction](#introduction)
 - [Algorithm](#algorithm)
+- [Operations](#operations)
 - [Installation](#installation)
 - [Usage](#usage)
 
