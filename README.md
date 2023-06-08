@@ -59,5 +59,18 @@ To use Push Swap, follow these steps:
    pb
    rra
    ...
+## 🚨 DISCLAIMER 
+
+Maybe you could notice a different coding style.
+At 42 we need to follow some rules according to the coding standard of the school such as:
+
+```bash
+- No for, do while, switch, case or goto 
+- No functions with more than 25 lines 
+- No more than 5 functions per each file
+- No more than 5 variables in the same function
+- No assigns and declarations assigns in the same line
+```
+[Click here](https://github.com/MagicHatJo/-42-Norm/blob/master/norme.en.pdf) to read the norm file of 42 school. 
 
 
