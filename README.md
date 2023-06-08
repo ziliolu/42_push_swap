@@ -53,8 +53,9 @@ To use Push Swap, follow these steps:
    ./push_swap 42 17 9 33 1
 2. The program will output a series of instructions representing the operations required to sort the stack. For example:
    ```bash
-   sa
    pb
+   pb
+   rra
    rra
    ...
 ## 🚨 Disclaimer
