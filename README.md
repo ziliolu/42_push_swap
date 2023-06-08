@@ -38,7 +38,7 @@ The Push Swap program utilizes a limited set of operations to manipulate the sta
 - **sa**: Swap the top two elements of stack A.
 - **sb**: Swap the top two elements of stack B.
 - **ss**: Perform **sa** and **sb** simultaneously.
-- `pa`: Push the top element from stack B to stack A.
+`pa:` Push the top element from stack B to stack A.
 - **pb**: Push the top element from stack A to stack B.
 - **ra**: Rotate all elements of stack A upwards. The top element becomes the bottom element.
 - **rb**: Rotate all elements of stack B upwards. The top element becomes the bottom element.
