@@ -82,8 +82,8 @@ To use Push Swap, follow these steps:
    ...
 ## Tester 
 
-#### Push Swap Visualizer
-- [Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer) provides a graphical representation of the sorting process performed by the push_swap program. It helps to visualize and understand the sorting algorithm in action.
+##### [Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer)
+- This tester provides a graphical representation of the sorting process performed by the push_swap program. It helps to visualize and understand the sorting algorithm in action.
 
 ## 🚨 Disclaimer
 
