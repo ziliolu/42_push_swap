@@ -41,5 +41,8 @@ To install and run Push Swap, follow these steps:
    ```bash
    git clone https://github.com/ziliolu/push_swap.git
 2. Navigate to the project directory:
-```bash
-cd push_swap
+   ```bash
+   cd push_swa
+3. Compile the program by running the following command:
+   ```bash
+   make 
