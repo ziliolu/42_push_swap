@@ -8,7 +8,7 @@
 - [Algorithm](#algorithm)
 - [Installation](#installation)
 - [Usage](#usage)
-- [🚨 Disclaimer](#🚨 disclaimer)
+- [🚨 Disclaimer](#🚨disclaimer)
 
 ## Introduction
 
