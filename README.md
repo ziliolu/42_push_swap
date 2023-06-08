@@ -16,7 +16,7 @@ This project is part of the curriculum at 42 school and aims to sort a stack of 
 
 This README file will guide you through the project, explaining the algorithm used, how to install and run the program, and how to contribute to its development.
 
-[Click here](https://github.com/ziliolu/42_so_long/blob/main/so_long_subject.pdf) to access the complete subject of this project.
+[Click here](https://github.com/ziliolu/42_push_swap/blob/main/push_swap.pdf) to access the complete subject of this project.
 
 ## Algorithm
 
