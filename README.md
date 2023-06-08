@@ -19,15 +19,19 @@ This README file will guide you through the project, explaining the algorithm us
 
 ## Algorithm
 
-The algorithm used in this project is inspired by the article ["Push Swap: Solving Sorting Problem with Minimized Number of Operations"](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) by Ayodele Yogundairo.
+The algorithm used in this project is based on the article ["Push Swap: Solving Sorting Problem with Minimized Number of Operations"](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) by Ayodele Yogundairo.
 
-The algorithm can be divided into two main phases:
+The algorithm can be summarized as follows:
 
-1. **Divide and Conquer**: In this phase, the algorithm divides the stack into chunks of sorted numbers. It starts by finding the maximum and minimum values in the stack. Then, it iteratively divides the stack into two parts: the numbers already sorted in stack B and the remaining unsorted numbers in stack A. This process continues until all the numbers are sorted in stack B.
+1. **Chunk Division**: The algorithm starts by dividing the stack into two parts: stack A (initially containing all the numbers) and an empty stack B. It selects a chunk size based on the total number of elements in stack A.
 
-2. **Merge**: Once the stack is divided into sorted chunks, the algorithm merges these chunks together into a single sorted stack. It achieves this by analyzing the position of the numbers in stack B and performing specific operations to rearrange them in the correct order.
+2. **Push to Stack B**: The algorithm identifies the "cheapest" number in stack A, which is the number that requires the fewest number of moves to be pushed to stack B. It uses various operations (swap, rotate, reverse rotate) to move this number to stack B.
 
-The algorithm carefully selects the operations to minimize the number of moves required, using techniques such as finding the optimal rotation and the best position to insert a number into stack B.
+3. **Sorting in Stack B**: Once a number is pushed to stack B, the algorithm evaluates the remaining numbers in stack A and performs a similar process to find the next "cheapest" number. It continues this process until all numbers are in stack B.
+
+4. **Back to Stack A**: After all the numbers are in stack B, the algorithm begins the process of moving the numbers back to stack A while keeping them in the correct order. It performs a series of operations to achieve this.
+
+The algorithm optimizes the number of moves by carefully selecting the "cheapest" number at each step and utilizing the available operations to minimize the total number of moves required.
 
 ## Installation
 
@@ -36,3 +40,4 @@ To install and run Push Swap, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/push_swap.git
+
