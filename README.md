@@ -31,6 +31,26 @@ The algorithm can be summarized as follows:
 
 The algorithm optimizes the number of moves by carefully selecting the "cheapest" number at each step and utilizing the available operations to minimize the total number of moves required.
 
+## Operations
+
+The Push Swap program utilizes a limited set of operations to manipulate the stacks and sort the numbers. Here are the available operations:
+
+- **sa**: Swap the top two elements of stack A.
+- **sb**: Swap the top two elements of stack B.
+- **ss**: Perform **sa** and **sb** simultaneously.
+- **pa**: Push the top element from stack B to stack A.
+- **pb**: Push the top element from stack A to stack B.
+- **ra**: Rotate all elements of stack A upwards. The top element becomes the bottom element.
+- **rb**: Rotate all elements of stack B upwards. The top element becomes the bottom element.
+- **rr**: Perform **ra** and **rb** simultaneously.
+- **rra**: Rotate all elements of stack A downwards. The bottom element becomes the top element.
+- **rrb**: Rotate all elements of stack B downwards. The bottom element becomes the top element.
+- **rrr**: Perform **rra** and **rrb** simultaneously.
+
+These operations allow the algorithm to manipulate the numbers in the stacks and perform various sorting strategies. The algorithm analyzes the state of the stacks and chooses the most appropriate operations to minimize the number of moves required for sorting.
+
+You can find the implementation of these operations in the source code of the Push Swap project.
+
 ## Installation
 
 To install and run Push Swap, follow these steps:
