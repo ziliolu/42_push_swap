@@ -46,3 +46,18 @@ To install and run Push Swap, follow these steps:
 3. Compile the program by running the following command:
    ```bash
    make 
+   
+## Usage 
+To use Push Swap, follow these steps:
+
+1. Execute the program with a list of integers as arguments. For example:
+   ```bash
+   ./push_swap 42 17 9 33 1
+2. The program will output a series of instructions representing the operations required to sort the stack. For example:
+   ```bash
+   sa
+   pb
+   rra
+   ...
+
+
