@@ -8,11 +8,11 @@
 - [Algorithm](#algorithm)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Disclaimer] (#disclaimer)
+- [Disclaimer](#disclaimer)
 
 ## Introduction
 
-Welcome to Push Swap! This project is part of the curriculum at 42 school and aims to sort a stack of integers using a limited set of operations. The goal is to develop an efficient sorting algorithm that can arrange the stack in ascending order using the fewest number of moves possible.
+This project is part of the curriculum at 42 school and aims to sort a stack of integers using a limited set of operations. The goal is to develop an efficient sorting algorithm that can arrange the stack in ascending order using the fewest number of moves possible.
 
 This README file will guide you through the project, explaining the algorithm used, how to install and run the program, and how to contribute to its development.
 
