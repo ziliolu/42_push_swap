@@ -20,7 +20,7 @@ This README file will guide you through the project, explaining the algorithm us
 
 ## Algorithm
 
-The algorithm used in this project is based on the article ["Push Swap — A journey to find most efficient sorting algorithm"](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) by Yiğit Ali.
+The algorithm used in this project is based on the article ["Push Swap — A journey to find most efficient sorting algorithm"](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) by [A. Yigit Ogun](https://medium.com/@ayogun).
 
 The algorithm can be summarized as follows:
 
