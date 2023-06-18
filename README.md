@@ -15,6 +15,8 @@
 - [Operations](#operations)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Testers](#testers)
+- [Disclaimer](#disclaimer)
 
 ## Introduction
 
@@ -90,7 +92,7 @@ To use Push Swap, follow these steps:
 
 1. [Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer) provides a graphical representation of the sorting process performed by the push_swap program. It helps to visualize and understand the sorting algorithm in action.
 
-## 🚨 Disclaimer
+## Disclaimer
 
 Maybe you could notice a different coding style.
 At 42 we need to follow some rules according to the coding standard of the school such as:
