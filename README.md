@@ -28,7 +28,7 @@ This README file will guide you through the project, explaining the algorithm us
 
 The algorithm used in this project is based on the article ["Push Swap — A journey to find most efficient sorting algorithm"](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) by [Ali Yigit Ogun](https://github.com/byaliego).
 
-The algorithm can be summarized as follows:
+It can be summarized as follows:
 
 1. **Chunk Division**: The algorithm starts by dividing the stack into two parts: stack A (initially containing all the numbers) and an empty stack B. It selects a chunk size based on the total number of elements in stack A.
 
