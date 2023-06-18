@@ -10,7 +10,7 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [About](#about)
 - [Algorithm](#algorithm)
 - [Operations](#operations)
 - [Installation](#installation)
@@ -18,7 +18,7 @@
 - [Testers](#testers)
 - [Disclaimer](#disclaimer)
 
-## Introduction
+## About
 
 This project is part of the curriculum at 42 school and aims to sort a stack of integers using a limited set of operations. The goal is to develop an efficient sorting algorithm that can arrange the stack in ascending order using the fewest number of moves possible.
 
