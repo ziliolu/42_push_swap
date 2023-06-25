@@ -6,7 +6,7 @@
 /*   By: lpicoli- <lpicoli-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:38:14 by lpicoli-          #+#    #+#             */
-/*   Updated: 2023/04/12 15:55:23 by lpicoli-         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:59:00 by lpicoli-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	find_cheapest(t_stack *origin, t_stack *dest, t_stack *tmp, t_utils *u)
 {
 	int		i;
 	int		sum;
-	t_utils	*tmp_utils;
+	//t_utils	*tmp_utils;
 
 	i = 0;
-	tmp_utils = u;
+	//tmp_utils = u;
 	sum = sum_moves(u);
 	while (i < tmp->size)
 	{
@@ -29,7 +29,7 @@ void	find_cheapest(t_stack *origin, t_stack *dest, t_stack *tmp, t_utils *u)
 		if (sum_moves(u) == 0 || sum_moves(u) < sum)
 		{
 			sum = sum_moves(u);
-			tmp_utils = u;
+			//tmp_utils = u;
 			if (sum_moves(u) == 0 || sum_moves(u) == 1)
 				break ;
 		}
@@ -46,9 +46,9 @@ t_utils	push_swap_back(t_stack *origin, t_stack *dest)
 	t_utils	utils;
 	t_utils	tmp_utils;
 	t_stack	tmp;
-	int		i;
+	//int		i;
 
-	i = 0;
+	//i = 0;
 	init_utils (&utils);
 	init_utils (&tmp_utils);
 	tmp = copy_stack(origin);
