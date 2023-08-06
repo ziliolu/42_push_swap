@@ -34,13 +34,11 @@ It can be summarized as follows:
 
 1. **Chunk Division**: The algorithm starts by dividing the stack into two parts: stack A (initially containing all the numbers) and an empty stack B.
 
-2. **Push to Stack B**: The algorithm identifies the "cheapest" number in stack A, which is the number that requires the fewest number of moves to be pushed to stack B. It uses various operations (swap, rotate, reverse rotate) to move this number to stack B.
+2. **Push to Stack B**: The algorithm identifies the "cheapest" number in stack A, which is the number that requires the fewest number of moves to be pushed to stack B. It uses different operations (rotate, reverse rotate) to move this number to stack B.
 
 3. **Sorting in Stack B**: Once a number is pushed to stack B, the algorithm evaluates the remaining numbers in stack A and performs a similar process to find the next "cheapest" number. It continues this process until all numbers are in stack B.
 
-4. **Back to Stack A**: After all the numbers are in stack B, the algorithm begins the process of moving the numbers back to stack A while keeping them in the correct order. It performs a series of operations to achieve this.
-
-The algorithm optimizes the number of moves by carefully selecting the "cheapest" number at each step and utilizing the available operations to minimize the total number of moves required.
+4. **Back to Stack A**: After all the numbers are in stack B, the algorithm begins the process of moving the numbers back to stack A while keeping them in the correct order, always caring about the cheapest numbers in both stacks. It performs a series of operations to achieve this.
 
 ## Operations
 
