@@ -32,7 +32,7 @@ The algorithm used in this project is based on the article ["Push Swap — A jou
 
 It can be summarized as follows:
 
-1. **Chunk Division**: The algorithm starts by dividing the stack into two parts: stack A (initially containing all the numbers) and an empty stack B. It selects a chunk size based on the total number of elements in stack A.
+1. **Chunk Division**: The algorithm starts by dividing the stack into two parts: stack A (initially containing all the numbers) and an empty stack B.
 
 2. **Push to Stack B**: The algorithm identifies the "cheapest" number in stack A, which is the number that requires the fewest number of moves to be pushed to stack B. It uses various operations (swap, rotate, reverse rotate) to move this number to stack B.
 
